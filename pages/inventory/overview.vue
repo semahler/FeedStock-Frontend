@@ -1,7 +1,7 @@
 <template>
   <div class="column">
     <h1 class="title">
-      Gesamtübersicht
+      Gesamtbestand
     </h1>
     <logo />
   </div>
@@ -13,6 +13,11 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  head () {
+    return {
+      title: 'Gesamtbestand'
+    }
   }
 }
 </script>

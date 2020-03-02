@@ -16,6 +16,11 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  head () {
+    return {
+      title: 'Dashboard'
+    }
   }
 }
 </script>
