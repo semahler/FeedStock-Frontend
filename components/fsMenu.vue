@@ -5,33 +5,62 @@
         Allgemein
       </p>
       <ul class="menu-list">
-        <li><a href="#">Dashboard</a></li>
+        <li>
+          <nuxt-link to="/">
+            Dashboard
+          </nuxt-link>
+        </li>
       </ul>
 
       <p class="menu-label">
         Stammdaten
       </p>
       <ul class="menu-list">
-        <li><a href="#">Futter</a></li>
-        <li><a href="#">Hersteller</a></li>
-        <li><a href="#">Futterarten</a></li>
-        <li><a href="#">Packungseinheiten</a></li>
+        <li>
+          <nuxt-link to="/baseData/feed">
+            Futter
+          </nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/baseData/manufacturer">
+            Hersteller
+          </nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/baseData/feed_type">
+            Futterarten
+          </nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/baseData/package_unit">
+            Verpackungseinheiten
+          </nuxt-link>
+        </li>
       </ul>
 
       <p class="menu-label">
         Bestand
       </p>
       <ul class="menu-list">
-        <li><a href="#">Gesamtübersicht</a></li>
-        <li><a href="#">Zugang</a></li>
-        <li><a href="#">Abgang</a></li>
+        <li>
+          <nuxt-link to="/inventory/overview">
+            Gesamtübersicht
+          </nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/inventory/inventory_change">
+            Bestandsänderung
+          </nuxt-link>
+        </li>
       </ul>
 
       <p class="menu-label">
         Über
       </p>
       <ul class="menu-list">
-        <li><a href="#">Über</a></li>
+        <nuxt-link to="/about">
+          Über
+        </nuxt-link>
       </ul>
     </div>
   </aside>

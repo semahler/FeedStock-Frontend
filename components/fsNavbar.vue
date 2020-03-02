@@ -1,10 +1,9 @@
 <template>
   <nav class="navbar is-light" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
+      <nuxt-link to="/">
         <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-      </a>
-
+      </nuxt-link>
       <a role="button" class="navbar-burger burger is-hidden-tablet" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true" />
         <span aria-hidden="true" />
@@ -14,19 +13,30 @@
 
     <div id="navbarMobile" class="navbar-menu">
       <div class="navbar-start is-hidden-tablet">
-        <a class="navbar-item" href="#">
+        <nuxt-link to="/" class="navbar-item">
           Dashboard
-        </a>
+        </nuxt-link>
 
         <div class="navbar-item has-dropdown">
           <a class="navbar-link">
             Stammdaten
           </a>
           <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Futter</a>
-            <a class="navbar-item" href="#">Hersteller</a>
-            <a class="navbar-item" href="#">Futterarten</a>
-            <a class="navbar-item" href="#">Packungseinheiten</a>
+            <nuxt-link to="/baseData/feed" class="navbar-item">
+              Futter
+            </nuxt-link>
+
+            <nuxt-link to="/baseData/manufacturer" class="navbar-item">
+              Hersteller
+            </nuxt-link>
+
+            <nuxt-link to="/baseData/feed_type" class="navbar-item">
+              Futterarten
+            </nuxt-link>
+
+            <nuxt-link to="/baseData/package_unit" class="navbar-item">
+              Verpackungseinheiten
+            </nuxt-link>
           </div>
         </div>
 
@@ -35,15 +45,19 @@
             Bestand
           </a>
           <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">Gesamtübersicht</a>
-            <a class="navbar-item" href="#">Zugang</a>
-            <a class="navbar-item" href="#">Abgang</a>
+            <nuxt-link to="/inventory/overview" class="navbar-item">
+              Gesamtübersicht
+            </nuxt-link>
+
+            <nuxt-link to="/inventory/inventory_change" class="navbar-item">
+              Bestandsänderung
+            </nuxt-link>
           </div>
         </div>
 
-        <a class="navbar-item" href="#">
-          Dashboard
-        </a>
+        <nuxt-link to="/about" class="navbar-item">
+          Üger
+        </nuxt-link>
       </div>
     </div>
   </nav>

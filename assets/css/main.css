@@ -20,12 +20,21 @@ html {
 
 .dashboard-menu .menu-list a {
   padding: 0.5em 1.5em;
-
 }
 
 .dashboard-menu .menu-list a:hover {
   color: #ffad33;
+}
 
+a.nuxt-link-exact-active {
+  color: #ffad33;
+  background-color: whitesmoke;
+}
+
+div.navbar-brand a {
+  line-height: 1.5;
+  padding: 0.5rem 0.75rem;
+  position: relative;
 }
 
 @media (min-width: 1023px) {
