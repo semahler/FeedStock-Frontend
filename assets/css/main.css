@@ -1,7 +1,17 @@
+/*
+*******************************
+variables
+*******************************
+ */
 :root {
   --fs-orange: #ffad33;
 }
 
+/*
+*******************************
+general
+*******************************
+ */
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
   Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -14,6 +24,17 @@ html {
   box-sizing: border-box;
 }
 
+@media (min-width: 1023px) {
+  .section {
+    padding: 1rem 0rem;
+  }
+}
+
+/*
+*******************************
+main navigation
+*******************************
+ */
 .dashboard-menu {
   padding: 1em 0;
 }
@@ -35,16 +56,15 @@ a.nuxt-link-exact-active {
   background-color: whitesmoke;
 }
 
+/*
+*******************************
+mobile navigation
+*******************************
+ */
 div.navbar-brand a {
   line-height: 1.5;
   padding: 0.5rem 0.75rem;
   position: relative;
-}
-
-@media (min-width: 1023px) {
-  .section {
-    padding: 1rem 0rem;
-  }
 }
 
 div.navbar-item.has-dropdown > div.navbar-dropdown {
@@ -54,7 +74,6 @@ div.navbar-item.has-dropdown > div.navbar-dropdown {
 div.navbar-item.has-dropdown > div.navbar-dropdown.show-mobile {
   display: block;
 }
-
 
 .navbar-link:not(.is-arrowless)::after {
   border-color: var(--fs-orange);;
