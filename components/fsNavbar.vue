@@ -4,24 +4,32 @@
       <nuxt-link to="/">
         <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
       </nuxt-link>
-      <a role="button" class="navbar-burger burger is-hidden-tablet" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <a
+        role="button"
+        class="navbar-burger burger is-hidden-tablet"
+        aria-label="menu"
+        aria-expanded="false"
+        data-target="navbarMobile"
+        :class="{'is-active': navbarMobileExpanded}"
+        @click="navbarMobileExpanded = !navbarMobileExpanded"
+      >
         <span aria-hidden="true" />
         <span aria-hidden="true" />
         <span aria-hidden="true" />
       </a>
     </div>
 
-    <div id="navbarMobile" class="navbar-menu">
+    <div id="navbarMobile" class="navbar-menu" :class="{'is-active': navbarMobileExpanded}">
       <div class="navbar-start is-hidden-tablet">
         <nuxt-link to="/" class="navbar-item">
           Dashboard
         </nuxt-link>
 
         <div class="navbar-item has-dropdown">
-          <a class="navbar-link">
+          <a class="navbar-link" :class="{'rotate-icon': navbarMobileBaseDataDropdownExpanded}" @click="navbarMobileBaseDataDropdownExpanded = !navbarMobileBaseDataDropdownExpanded">
             Stammdaten
           </a>
-          <div class="navbar-dropdown">
+          <div class="navbar-dropdown" :class="{'show-mobile': navbarMobileBaseDataDropdownExpanded}">
             <nuxt-link to="/baseData/feed" class="navbar-item">
               Futter
             </nuxt-link>
@@ -40,11 +48,11 @@
           </div>
         </div>
 
-        <div class="navbar-item has-dropdown">
-          <a class="navbar-link">
+        <div class="navbar-item has-dropdown" :class="{'show-mobile': navbarMobileBaseDataDropdownExpanded}">
+          <a class="navbar-link" @click="navbarMobileInventoryDropdownExpanded = !navbarMobileInventoryDropdownExpanded">
             Bestand
           </a>
-          <div class="navbar-dropdown">
+          <div class="navbar-dropdown" :class="{'show-mobile': navbarMobileInventoryDropdownExpanded}">
             <nuxt-link to="/inventory/overview" class="navbar-item">
               Gesamtübersicht
             </nuxt-link>
@@ -56,9 +64,21 @@
         </div>
 
         <nuxt-link to="/about" class="navbar-item">
-          Üger
+          Über
         </nuxt-link>
       </div>
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      navbarMobileExpanded: false,
+      navbarMobileBaseDataDropdownExpanded: false,
+      navbarMobileInventoryDropdownExpanded: false
+    }
+  }
+}
+</script>
