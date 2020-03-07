@@ -3,19 +3,29 @@
     <h1 class="title">
       Hersteller
     </h1>
-    <h2 class="subtitle">
-      A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading
-    </h2>
-    <logo />
+
+    <table class="table">
+      <tbody>
+        <tr v-for="manufacturer in manufacturers" :key="manufacturer.manufacturer_id">
+          <td>{{ manufacturer.name }}</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
 export default {
-  components: {
-    Logo
+  async asyncData ({ $axios }) {
+    const manufacturers = await $axios.$get('http://localhost/api/manufacturers')
+    return { manufacturers }
+  },
+  data () {
+    return {
+      manufacturers: []
+    }
   },
   head () {
     return {
