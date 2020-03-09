@@ -42,9 +42,9 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios',
     '@nuxtjs/style-resources',
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    'nuxt-fontawesome'
   ],
   /*
   ** Axios module configuration
@@ -68,5 +68,17 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  fontawesome: {
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons', // Solid icons
+        icons: ['fas']
+      },
+      {
+        set: '@fortawesome/free-brands-svg-icons', // Brand icons
+        icons: ['fab']
+      }
+    ]
   }
 }
