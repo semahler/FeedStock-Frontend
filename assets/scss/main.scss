@@ -1,34 +1,4 @@
-/*
-*******************************
-variables
-*******************************
- */
-:root {
-  --fs-orange: #ffad33;
-}
-
-/*
-*******************************
-general
-*******************************
- */
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-  Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-@media (min-width: 1023px) {
-  .section {
-    padding: 1rem 0rem;
-  }
-}
+@import "assets/scss/variables";
 
 /*
 *******************************
@@ -48,11 +18,11 @@ main navigation
 }
 
 .dashboard-menu .menu-list a:hover {
-  color: var(--fs-orange);
+  color: $orange;
 }
 
 a.nuxt-link-exact-active {
-  color: var(--fs-orange);
+  color: $orange;
   background-color: whitesmoke;
 }
 
@@ -76,7 +46,7 @@ div.navbar-item.has-dropdown > div.navbar-dropdown.show-mobile {
 }
 
 .navbar-link:not(.is-arrowless)::after {
-  border-color: var(--fs-orange);;
+  border-color: $orange;
 }
 
 .navbar-link.rotate-icon:not(.is-arrowless)::after {
