@@ -28,13 +28,19 @@ a.nuxt-link-exact-active {
 
 /*
 *******************************
-mobile navigation
+navbar/mobile navigation
 *******************************
  */
+
 div.navbar-brand a {
   line-height: 1.5;
   padding: 0.5rem 0.75rem;
   position: relative;
+}
+
+.navbar-brand svg#feedstock-logo {
+  height: 30px;
+  width: 115px;
 }
 
 div.navbar-item.has-dropdown > div.navbar-dropdown {
