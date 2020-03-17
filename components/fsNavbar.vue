@@ -46,7 +46,10 @@
                 Futterarten
               </nuxt-link>
 
-              <nuxt-link to="/baseData/package_unit" class="navbar-item">
+              <nuxt-link
+                :to="{ name: 'package-unit'}"
+                :class="['navbar-item']"
+              >
                 Verpackungseinheiten
               </nuxt-link>
             </div>

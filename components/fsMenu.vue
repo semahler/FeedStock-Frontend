@@ -32,7 +32,7 @@
           </nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/baseData/package_unit">
+          <nuxt-link :to="{ name: 'package-unit'}">
             Verpackungseinheiten
           </nuxt-link>
         </li>
