@@ -35,7 +35,10 @@
                 Futter
               </nuxt-link>
 
-              <nuxt-link to="/baseData/manufacturer" class="navbar-item">
+              <nuxt-link
+                :to="{ name: 'manufacturer'}"
+                :class="['navbar-item']"
+              >
                 Hersteller
               </nuxt-link>
 

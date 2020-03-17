@@ -22,7 +22,7 @@
           </nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/baseData/manufacturer">
+          <nuxt-link :to="{ name: 'manufacturer'}">
             Hersteller
           </nuxt-link>
         </li>

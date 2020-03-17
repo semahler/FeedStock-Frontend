@@ -3,7 +3,6 @@
     <h1 class="title">
       Bestandsänderung
     </h1>
-    <logo />
   </div>
 </template>
 

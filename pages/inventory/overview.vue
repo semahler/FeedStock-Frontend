@@ -3,7 +3,6 @@
     <h1 class="title">
       Gesamtbestand
     </h1>
-    <logo />
   </div>
 </template>
 
