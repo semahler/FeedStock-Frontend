@@ -42,7 +42,10 @@
                 Hersteller
               </nuxt-link>
 
-              <nuxt-link to="/baseData/feed_type" class="navbar-item">
+              <nuxt-link
+                :to="{name: 'feed-type'}"
+                :class="['navbar-item']"
+              >
                 Futterarten
               </nuxt-link>
 

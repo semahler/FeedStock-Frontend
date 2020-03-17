@@ -27,7 +27,7 @@
           </nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/baseData/feed_type">
+          <nuxt-link :to="{name: 'feed-type'}">
             Futterarten
           </nuxt-link>
         </li>
