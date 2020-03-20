@@ -40,7 +40,11 @@
               </span>
             </button>
 
-            <button class="button is-small is-danger is-outlined" @click="deleteManufacturer(manufacturer.manufacturer_id, index)">
+            <button
+              class="button is-small is-danger is-outlined"
+              :disabled="(manufacturer.feed_count > 0)"
+              @click="deleteManufacturer(manufacturer.manufacturer_id, index)"
+            >
               <span class="icon is-small">
                 <font-awesome-icon :icon="['fas', 'trash']" />
               </span>

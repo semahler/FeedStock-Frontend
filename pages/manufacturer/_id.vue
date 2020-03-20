@@ -24,7 +24,7 @@
               {{ feed.name }}
             </p>
             <p class="subtitle">
-              Jeff Atwood
+              ...
             </p>
           </div>
         </div>
@@ -38,25 +38,17 @@ export default {
   data () {
     return {
       id: this.$route.params.id,
-      manufacturer: [],
-      feeds: []
+      manufacturer: []
     }
   },
   mounted () {
     this.getManufacturer()
-    this.getFeedByManufacturerId(this.id)
   },
   methods: {
     getManufacturer () {
       this.$axios.$get('http://localhost/api/manufacturers/' + this.id)
         .then((response) => {
           this.manufacturer = response
-        })
-    },
-    getFeedByManufacturerId (manufacturerId) {
-      this.$axios.$get('http://localhost/api/manufacturers/' + this.id)
-        .then((response) => {
-          this.feeds = response
         })
     }
   },
