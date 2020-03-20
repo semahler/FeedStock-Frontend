@@ -15,7 +15,7 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th class="has-text-right">
+          <th class="has-text-centered">
             Anzahl Futter
           </th>
           <th class="has-text-centered">
@@ -30,8 +30,8 @@
               {{ manufacturer.name }}
             </nuxt-link>
           </td>
-          <td class="has-text-right">
-          &nbsp;
+          <td class="has-text-centered">
+            {{ manufacturer.feed_count }}
           </td>
           <td class="has-text-centered">
             <button class="button is-small is-primary is-outlined" @click="editManufacturer(manufacturer.manufacturer_id)">
