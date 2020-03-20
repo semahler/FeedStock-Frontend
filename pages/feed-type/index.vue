@@ -21,18 +21,18 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(feedType, index) in feedTypes" :key="feedType.food_type_id">
+        <tr v-for="(feedType, index) in feedTypes" :key="feedType.feed_type_id">
           <td>
             {{ feedType.title }}
           </td>
           <td class="has-text-centered">
-            <button class="button is-small is-primary is-outlined" @click="editFeedType(feedType.food_type_id)">
+            <button class="button is-small is-primary is-outlined" @click="editFeedType(feedType.feed_type_id)">
               <span class="icon is-small">
                 <font-awesome-icon :icon="['fas', 'pen']" />
               </span>
             </button>
 
-            <button class="button is-small is-danger is-outlined" @click="deleteFeedType(feedType.food_type_id, index)">
+            <button class="button is-small is-danger is-outlined" @click="deleteFeedType(feedType.feed_type_id, index)">
               <span class="icon is-small">
                 <font-awesome-icon :icon="['fas', 'trash']" />
               </span>
@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     getFeedTypes () {
-      this.$axios.$get('http://127.0.0.1/api/food_types')
+      this.$axios.$get('http://127.0.0.1/api/feed_types')
         .then((response) => {
           this.feedTypes = response
         })
@@ -68,7 +68,7 @@ export default {
       this.$router.push({ name: 'feed-type-edit-id', params: { id: feedTypeId } })
     },
     deleteFeedType (feedTypeId, index) {
-      this.$axios.$delete('http://127.0.0.1/api/food_types/' + feedTypeId)
+      this.$axios.$delete('http://127.0.0.1/api/feed_types/' + feedTypeId)
         .then((response) => {
           this.feedTypes.splice(index, 1)
         })

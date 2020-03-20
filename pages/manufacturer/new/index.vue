@@ -3,7 +3,6 @@
     <h1 class="title">
       Neuen Hersteller anlegen
     </h1>
-    {{ manufacturer }}
     <hr>
     <manufacturer-new-edit-form-component :manufacturer="manufacturer" />
   </div>

@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="createOrUpdateFeedType">
-    <input v-model="feedType.food_type_id" type="hidden">
+    <input v-model="feedType.feed_type_id" type="hidden">
     <div class="field">
       <label class="label">Name</label>
       <div class="control">
@@ -61,12 +61,12 @@ export default {
         e.preventDefault()
 
         const formData = new FormData()
-        if (this.feedType.food_type_id) {
-          formData.set('id', this.feedType.food_type_id)
+        if (this.feedType.feed_type_id) {
+          formData.set('id', this.feedType.feed_type_id)
         }
         formData.set('title', this.$v.feedType.title.$model)
 
-        this.$axios.post('http://localhost/api/food_types', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+        this.$axios.post('http://localhost/api/feed_types', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
           .then((response) => {
             this.$router.push({ name: 'feed-type' })
           })

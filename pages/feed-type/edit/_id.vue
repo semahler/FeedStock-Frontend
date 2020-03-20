@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     getFeedType () {
-      this.$axios.$get('http://127.0.0.1/api/food_types/' + this.id)
+      this.$axios.$get('http://127.0.0.1/api/feed_types/' + this.id)
         .then((response) => {
           this.feedType = response
         })
