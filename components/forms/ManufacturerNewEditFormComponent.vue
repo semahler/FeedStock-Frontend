@@ -68,27 +68,19 @@
     </div>
 
     <hr>
-
-    <div class="field is-grouped">
-      <div class="control">
-        <button id="register_submit" type="submit" class="button is-primary">
-          Absenden
-        </button>
-      </div>
-      <div class="control">
-        <button type="reset" class="button is-light">
-          Zurücksetzen
-        </button>
-      </div>
-    </div>
+    <submit-reset-button-component />
   </form>
 </template>
 
 <script>
 import { required, url } from 'vuelidate/lib/validators'
+import SubmitResetButtonComponent from '@/components/form-components/SubmitResetButtonComponent'
 
 export default {
   name: 'ManufacturerNewEditComponent',
+  components: {
+    SubmitResetButtonComponent
+  },
   props: {
     manufacturer: {
       type: Object,

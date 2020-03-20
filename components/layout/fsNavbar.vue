@@ -83,7 +83,7 @@
 </template>
 
 <script>
-import fsLogo from '~/components/fsLogo.vue'
+import fsLogo from '@/components/layout/fsLogo.vue'
 
 export default {
   components: {

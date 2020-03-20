@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import fsNavbar from '@/components/fsNavbar'
-import fsMenu from '@/components/fsMenu'
-import fsFooter from '@/components/fsFooter'
+import fsNavbar from '@/components/layout/fsNavbar'
+import fsMenu from '@/components/layout/fsMenu'
+import fsFooter from '@/components/layout/fsFooter'
 
 export default {
   components: {
