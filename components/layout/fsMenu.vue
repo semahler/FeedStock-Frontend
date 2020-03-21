@@ -48,7 +48,7 @@
           </nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/inventory/inventory_change">
+          <nuxt-link :to="{ name: 'inventory-stock-movement'}">
             Bestandsänderung
           </nuxt-link>
         </li>

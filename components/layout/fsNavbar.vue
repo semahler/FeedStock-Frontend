@@ -67,7 +67,10 @@
                 Gesamtübersicht
               </nuxt-link>
 
-              <nuxt-link to="/inventory/inventory_change" class="navbar-item">
+              <nuxt-link
+                :to="{ name: 'inventory-stock-movement'}"
+                :class="['navbar-item']"
+              >
                 Bestandsänderung
               </nuxt-link>
             </div>
