@@ -58,8 +58,11 @@
         Über
       </p>
       <ul class="menu-list">
-        <nuxt-link to="/about">
+        <nuxt-link :to="{ name: 'about'}">
           Über
+        </nuxt-link>
+        <nuxt-link :to="{ name: 'version-info'}">
+          Versionsinformationen
         </nuxt-link>
       </ul>
     </div>

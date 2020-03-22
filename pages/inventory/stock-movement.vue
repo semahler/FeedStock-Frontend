@@ -1,6 +1,6 @@
 <template>
   <div class="column">
-    <h1 class="title">
+    <h1 class="title is-3">
       Bestandsänderung
     </h1>
     <hr>

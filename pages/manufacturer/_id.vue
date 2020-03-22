@@ -1,6 +1,6 @@
 <template>
   <div class="column">
-    <h1 class="title">
+    <h1 class="title is-3">
       {{ manufacturer.name }}
       &nbsp;
       <a :class="['title-link']" :href="manufacturer.url" target="_blank">

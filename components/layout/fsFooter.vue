@@ -5,7 +5,9 @@
         <strong>FeedStock</strong> by Sebastian Mahler
       </p>
       <p>
-        with paw support from Amara & Findus
+        <font-awesome-icon :icon="['fas', 'paw']" :class="['has-text-primary']" />
+        &nbsp;mit Unterstützung von Amara & Findus&nbsp;
+        <font-awesome-icon :icon="['fas', 'paw']" :class="['has-text-primary']" />
       </p>
     </div>
   </footer>

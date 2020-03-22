@@ -79,8 +79,18 @@
             </div>
           </div>
 
-          <nuxt-link to="/about" class="navbar-item">
+          <nuxt-link
+            :to="{ name: 'about'}"
+            :class="['navbar-item']"
+          >
             Über
+          </nuxt-link>
+
+          <nuxt-link
+            :to="{ name: 'version-info'}"
+            :class="['navbar-item']"
+          >
+            Versionsinformationen
           </nuxt-link>
         </div>
       </div>

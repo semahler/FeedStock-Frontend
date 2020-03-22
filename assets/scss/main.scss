@@ -29,6 +29,10 @@ navbar/mobile navigation
 *******************************
  */
 
+nav.navbar {
+  border-bottom: 1px solid $orange;
+}
+
 div.navbar-brand a {
   line-height: 1.5;
   padding: 0.5rem 0.75rem;
@@ -78,4 +82,9 @@ a.title-link, .table td, .table th {
 
 .card-block{
   height: 100%;
+}
+
+.page-logo svg#feedstock-logo {
+  display: block;
+  width: 45%;
 }
