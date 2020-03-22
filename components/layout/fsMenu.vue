@@ -43,7 +43,7 @@
       </p>
       <ul class="menu-list">
         <li>
-          <nuxt-link to="/inventory/overview">
+          <nuxt-link :to="{ name: 'inventory-stock-overview'}">
             Gesamtübersicht
           </nuxt-link>
         </li>

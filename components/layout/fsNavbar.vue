@@ -63,7 +63,10 @@
               Bestand
             </a>
             <div class="navbar-dropdown" :class="{'show-mobile': navbarMobileInventoryDropdownExpanded}">
-              <nuxt-link to="/inventory/overview" class="navbar-item">
+              <nuxt-link
+                :to="{ name: 'inventory-stock-overview'}"
+                :class="['navbar-item']"
+              >
                 Gesamtübersicht
               </nuxt-link>
 

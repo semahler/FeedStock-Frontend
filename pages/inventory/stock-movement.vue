@@ -1,6 +1,5 @@
 <template>
   <div class="column">
-    {{ stockMovement }}
     <h1 class="title">
       Bestandsänderung
     </h1>
@@ -157,7 +156,7 @@ export default {
 
         this.$axios.post('http://localhost/api/stock_movement', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
           .then((response) => {
-            this.$router.push({ name: 'inventory-overview' })
+            this.$router.push({ name: 'inventory-stock-overview' })
           })
           .catch((error) => {
             window.console.log(error)
