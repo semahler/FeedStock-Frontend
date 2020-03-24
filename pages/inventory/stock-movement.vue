@@ -10,7 +10,7 @@
         <div class="control">
           <div class="select is-fullwidth" :class="{'is-danger': $v.stockMovement.manufacturerId.$error, 'is-success': !$v.stockMovement.manufacturerId.$invalid}">
             <select v-model="stockMovement.manufacturerId" @change="getManufacturerFeeds($event)">
-              <option value="">
+              <option disabled value="">
                 Bitte auswählen
               </option>
               <option v-for="manufacturer in manufacturers" :key="manufacturer.manufacturer_id" :value="manufacturer.manufacturer_id">
@@ -29,7 +29,7 @@
         <div class="control">
           <div class="select is-fullwidth" :class="{'is-danger': $v.stockMovement.feedId.$error, 'is-success': !$v.stockMovement.feedId.$invalid}">
             <select v-model="stockMovement.feedId">
-              <option value="">
+              <option disabled value="">
                 Bitte auswählen
               </option>
               <option v-for="feed in feeds" :key="feed.feed_id" :value="feed.feed_id">

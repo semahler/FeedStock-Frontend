@@ -31,7 +31,10 @@
               Stammdaten
             </a>
             <div class="navbar-dropdown" :class="{'show-mobile': navbarMobileBaseDataDropdownExpanded}">
-              <nuxt-link to="/baseData/feed" class="navbar-item">
+              <nuxt-link
+                :to="{ name: 'feed'}"
+                :class="['navbar-item']"
+              >
                 Futter
               </nuxt-link>
 

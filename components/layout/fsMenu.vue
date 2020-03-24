@@ -17,7 +17,7 @@
       </p>
       <ul class="menu-list">
         <li>
-          <nuxt-link to="/baseData/feed">
+          <nuxt-link :to="{ name: 'feed'}">
             Futter
           </nuxt-link>
         </li>
