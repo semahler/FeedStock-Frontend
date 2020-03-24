@@ -23,13 +23,15 @@ export default {
   ** Global CSS
   */
   css: [
-    'bulma',
-    '@/assets/css/main.css'
+    '~/assets/scss/bulma-custom.scss',
+    '~/assets/scss/main.scss'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/Vuelidate' },
+    { src: '~/plugins/Moment' }
   ],
   /*
   ** Nuxt.js dev-modules
@@ -42,10 +44,9 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    '@nuxtjs/bulma',
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/style-resources',
+    'nuxt-fontawesome'
   ],
   /*
   ** Axios module configuration
@@ -69,5 +70,17 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  fontawesome: {
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons', // Solid icons
+        icons: ['fas']
+      },
+      {
+        set: '@fortawesome/free-brands-svg-icons', // Brand icons
+        icons: ['fab']
+      }
+    ]
   }
 }

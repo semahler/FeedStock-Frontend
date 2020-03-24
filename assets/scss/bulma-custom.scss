@@ -1,0 +1,16 @@
+// 1. Import the initial variables
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/functions";
+@import "assets/scss/variables";
+
+$primary: $orange;
+$primary-invert: $white;
+$link: $grey-darker;
+
+$danger: hsla(0, 100%, 60%, 0.6);
+$warning: hsla(48, 100%, 67%, 0.6);
+
+$navbar-box-shadow-color: $grey-lightest;
+$background: $grey-lightest;
+
+@import "~bulma/bulma";

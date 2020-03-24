@@ -1,0 +1,97 @@
+@import "assets/scss/variables";
+@import "assets/scss/bulma-custom";
+
+/*
+*******************************
+main navigation
+*******************************
+ */
+
+.dashboard-menu .menu-label:not(:first-child) {
+  margin-top: 2.5em;
+}
+
+.dashboard-menu .menu-list a {
+  padding: 0.5em 1.5em;
+}
+
+.dashboard-menu .menu-list a:hover {
+  color: $orange;
+}
+
+a.nuxt-link-exact-active {
+  color: $orange;
+  background-color: whitesmoke;
+}
+
+/*
+*******************************
+navbar/mobile navigation
+*******************************
+ */
+
+nav.navbar {
+  border-bottom: 1px solid $orange;
+}
+
+div.navbar-brand a {
+  line-height: 1.5;
+  padding: 0.5rem 0.75rem;
+  position: relative;
+}
+
+.navbar-brand svg#feedstock-logo {
+  height: 30px;
+  width: 115px;
+}
+
+div.navbar-item.has-dropdown > div.navbar-dropdown {
+  display: none;
+}
+
+div.navbar-item.has-dropdown > div.navbar-dropdown.show-mobile {
+  display: block;
+}
+
+.navbar-link:not(.is-arrowless)::after {
+  border-color: $orange;
+}
+
+.navbar-link.rotate-icon:not(.is-arrowless)::after {
+  -moz-transform: rotate(-225deg);
+  -ms-transform: rotate(-225deg);
+  -o-transform: rotate(-225deg);
+  -webkit-transform: rotate(-225deg);
+
+  transform: rotate(-225deg);
+}
+
+/*
+*******************************
+General
+*******************************
+ */
+a.title-link, .table td, .table th {
+  vertical-align: middle;
+}
+
+.card {
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+}
+
+.card-block{
+  height: 100%;
+}
+
+.page-logo svg#feedstock-logo {
+  display: block;
+  width: 45%;
+}
+
+.box.comment {
+  box-shadow: none;
+  border: 1px solid;
+  border-color: $grey-lightest;
+}
