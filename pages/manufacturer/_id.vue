@@ -46,9 +46,20 @@ export default {
   },
   methods: {
     getManufacturer () {
-      this.$axios.$get('http://localhost/api/manufacturers/' + this.id)
+      this.$axios.$get('http://localhost/api/manufacturers/12' + this.id)
         .then((response) => {
           this.manufacturer = response
+        })
+        .catch((error) => {
+          this.showErrorNotification(error.response)
+        })
+    },
+    showErrorNotification (msg) {
+      this.$store.commit(
+        'modules/notifications/setNotificationMessage',
+        {
+          notificationMessage: msg.data.message,
+          notificationClass: 'is-danger'
         })
     }
   },

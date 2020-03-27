@@ -1,7 +1,29 @@
 <template>
-  <div class="notification is-danger">
-    <button class="delete" />
-    adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Sit amet,
-    consectetur adipiscing elit
+  <div v-if="notificationMessage" class="notification" :class="notificationClass">
+    <button class="delete" @click="dismissNotification()" />
+    {{ notificationMessage }}
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    notificationMessage () {
+      return this.$store.getters['modules/notifications/getNotificationMessage']
+    },
+    notificationClass () {
+      return this.$store.getters['modules/notifications/getNotificationClass']
+    }
+  },
+  watch: {
+    $route (to, from) {
+      this.dismissNotification()
+    }
+  },
+  methods: {
+    dismissNotification () {
+      this.$store.commit('modules/notifications/dismissNotification')
+    }
+  }
+}
+</script>
