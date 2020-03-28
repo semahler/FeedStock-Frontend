@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     getManufacturer () {
-      this.$axios.$get('http://localhost/api/manufacturers/12' + this.id)
+      this.$axios.$get('http://localhost/api/manufacturers/' + this.id)
         .then((response) => {
           this.manufacturer = response
         })
