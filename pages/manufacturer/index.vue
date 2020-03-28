@@ -57,6 +57,8 @@
 </template>
 
 <script>
+import { ERROR_TYPES } from '~/const'
+
 export default {
   data () {
     return {
@@ -72,6 +74,15 @@ export default {
         .then((response) => {
           this.manufacturers = response
         })
+        .catch((error) => {
+          if (error.response) {
+            this.showErrorNotification(ERROR_TYPES.REQUEST_ERROR, error.response)
+          } else if (error.request) {
+            this.showErrorNotification(ERROR_TYPES.CONNECTION_ERROR)
+          } else {
+            this.showErrorNotification(ERROR_TYPES.GENERAL_ERROR, error.message)
+          }
+        })
     },
     createManufacturer () {
       this.$router.push({ name: 'manufacturer-new' })
@@ -84,6 +95,18 @@ export default {
         .then((response) => {
           this.manufacturers.splice(index, 1)
         })
+        .catch((error) => {
+          if (error.response) {
+            this.showErrorNotification(ERROR_TYPES.REQUEST_ERROR, error.response)
+          } else if (error.request) {
+            this.showErrorNotification(ERROR_TYPES.CONNECTION_ERROR)
+          } else {
+            this.showErrorNotification(ERROR_TYPES.GENERAL_ERROR, error.message)
+          }
+        })
+    },
+    showErrorNotification (errorType, errorDetails) {
+      this.$store.commit('modules/notifications/setErrorNotificationData', { errorType, errorDetails })
     }
   },
   head () {

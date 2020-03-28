@@ -10,6 +10,7 @@
 
 <script>
 import FeedTypeNewEditFormComponent from '@/components/forms/FeedTypeNewEditFormComponent'
+import { ERROR_TYPES } from '~/const'
 
 export default {
   components: {
@@ -33,6 +34,18 @@ export default {
         .then((response) => {
           this.feedType = response
         })
+        .catch((error) => {
+          if (error.response) {
+            this.showErrorNotification(ERROR_TYPES.REQUEST_ERROR, error.response)
+          } else if (error.request) {
+            this.showErrorNotification(ERROR_TYPES.CONNECTION_ERROR)
+          } else {
+            this.showErrorNotification(ERROR_TYPES.GENERAL_ERROR, error.message)
+          }
+        })
+    },
+    showErrorNotification (errorType, errorDetails) {
+      this.$store.commit('modules/notifications/setErrorNotificationData', { errorType, errorDetails })
     }
   },
   head () {

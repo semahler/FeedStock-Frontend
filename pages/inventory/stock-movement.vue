@@ -89,6 +89,7 @@
 <script>
 import { required, integer, minValue } from 'vuelidate/lib/validators'
 import SubmitResetButtonComponent from '@/components/form-components/SubmitResetButtonComponent'
+import { ERROR_TYPES } from '~/const'
 
 export default {
   components: {
@@ -133,11 +134,29 @@ export default {
         .then((response) => {
           this.manufacturers = response
         })
+        .catch((error) => {
+          if (error.response) {
+            this.showErrorNotification(ERROR_TYPES.REQUEST_ERROR, error.response)
+          } else if (error.request) {
+            this.showErrorNotification(ERROR_TYPES.CONNECTION_ERROR)
+          } else {
+            this.showErrorNotification(ERROR_TYPES.GENERAL_ERROR, error.message)
+          }
+        })
     },
     getManufacturerFeeds (event) {
       this.$axios.$get('http://localhost/api/feedsByManufacturer/' + this.stockMovement.manufacturerId)
         .then((response) => {
           this.feeds = response
+        })
+        .catch((error) => {
+          if (error.response) {
+            this.showErrorNotification(ERROR_TYPES.REQUEST_ERROR, error.response)
+          } else if (error.request) {
+            this.showErrorNotification(ERROR_TYPES.CONNECTION_ERROR)
+          } else {
+            this.showErrorNotification(ERROR_TYPES.GENERAL_ERROR, error.message)
+          }
         })
     },
     createStockMovement (e) {
@@ -159,9 +178,18 @@ export default {
             this.$router.push({ name: 'inventory-stock-overview' })
           })
           .catch((error) => {
-            window.console.log(error)
+            if (error.response) {
+              this.showErrorNotification(ERROR_TYPES.REQUEST_ERROR, error.response)
+            } else if (error.request) {
+              this.showErrorNotification(ERROR_TYPES.CONNECTION_ERROR)
+            } else {
+              this.showErrorNotification(ERROR_TYPES.GENERAL_ERROR, error.message)
+            }
           })
       }
+    },
+    showErrorNotification (errorType, errorDetails) {
+      this.$store.commit('modules/notifications/setErrorNotificationData', { errorType, errorDetails })
     }
   },
   head () {

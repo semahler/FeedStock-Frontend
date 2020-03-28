@@ -99,6 +99,8 @@
 </template>
 
 <script>
+import { ERROR_TYPES } from '~/const'
+
 export default {
   data () {
     return {
@@ -124,11 +126,29 @@ export default {
         .then((response) => {
           this.feed = response
         })
+        .catch((error) => {
+          if (error.response) {
+            this.showErrorNotification(ERROR_TYPES.REQUEST_ERROR, error.response)
+          } else if (error.request) {
+            this.showErrorNotification(ERROR_TYPES.CONNECTION_ERROR)
+          } else {
+            this.showErrorNotification(ERROR_TYPES.GENERAL_ERROR, error.message)
+          }
+        })
     },
     getStockMovements () {
       this.$axios.$get('http://127.0.0.1/api/stock_movement/' + this.id)
         .then((response) => {
           this.stockMovements = response
+        })
+        .catch((error) => {
+          if (error.response) {
+            this.showErrorNotification(ERROR_TYPES.REQUEST_ERROR, error.response)
+          } else if (error.request) {
+            this.showErrorNotification(ERROR_TYPES.CONNECTION_ERROR)
+          } else {
+            this.showErrorNotification(ERROR_TYPES.GENERAL_ERROR, error.message)
+          }
         })
     },
     getComments () {
@@ -136,6 +156,18 @@ export default {
         .then((response) => {
           this.comments = response
         })
+        .catch((error) => {
+          if (error.response) {
+            this.showErrorNotification(ERROR_TYPES.REQUEST_ERROR, error.response)
+          } else if (error.request) {
+            this.showErrorNotification(ERROR_TYPES.CONNECTION_ERROR)
+          } else {
+            this.showErrorNotification(ERROR_TYPES.GENERAL_ERROR, error.message)
+          }
+        })
+    },
+    showErrorNotification (errorType, errorDetails) {
+      this.$store.commit('modules/notifications/setErrorNotificationData', { errorType, errorDetails })
     }
   },
   head () {
