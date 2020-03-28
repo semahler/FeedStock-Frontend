@@ -54,12 +54,15 @@ export default {
           this.showErrorNotification(error.response)
         })
     },
-    showErrorNotification (msg) {
+    showErrorNotification (error) {
+      const errorStatusCode = error.status
+      const errorMessage = error.data.message
+
       this.$store.commit(
-        'modules/notifications/setNotificationMessage',
+        'modules/notifications/setErrorNotification',
         {
-          notificationMessage: msg.data.message,
-          notificationClass: 'is-danger'
+          errorStatusCode,
+          errorMessage
         })
     }
   },
