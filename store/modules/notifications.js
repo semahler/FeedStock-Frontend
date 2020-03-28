@@ -1,14 +1,32 @@
+import { ERROR_TYPES, ERROR_MESSAGES } from '~/const'
+
 export const state = () => ({
   notificationMessage: null,
-  notificationClass: null,
-  statusCode: null
+  notificationDetails: {
+    statusCode: null,
+    statusText: null,
+    errorMessage: null
+  },
+  notificationClass: null
 })
 
 export const mutations = {
-  setErrorNotification (state, payload) {
-    state.notificationMessage = payload.errorMessage
+  setErrorNotificationData (state, payload) {
     state.notificationClass = 'is-danger'
-    state.statusCode = payload.errorStatusCode
+
+    switch (payload.errorType) {
+      case ERROR_TYPES.REQUEST_ERROR:
+        state.notificationMessage = ERROR_MESSAGES.REQUEST_ERROR
+        state.notificationDetails.statusCode = payload.errorDetails.status
+        state.notificationDetails.statusText = payload.errorDetails.statusText
+        state.notificationDetails.errorMessage = payload.errorDetails.data.message
+        break
+      case ERROR_TYPES.CONNECTION_ERROR:
+        state.notificationMessage = ERROR_MESSAGES.CONNECTION_ERROR
+        break
+      case ERROR_TYPES.GENERAL_ERROR:
+        state.notificationMessage = ERROR_MESSAGES.GENERAL_ERROR
+    }
   },
   setSuccessNotifiaction (state, payload) {
 
@@ -16,7 +34,9 @@ export const mutations = {
   dismissNotification (state) {
     state.notificationMessage = null
     state.notificationClass = null
-    state.statusCode = null
+    state.notificationDetails.statusCode = null
+    state.notificationDetails.statusText = null
+    state.notificationDetails.errorMessage = null
   }
 }
 
@@ -27,8 +47,8 @@ export const getters = {
   getNotificationClass (state) {
     return state.notificationClass
   },
-  getStatusCode (state) {
-    return state.statusCode
+  getNotificationDetails (state) {
+    return state.notificationDetails
   }
 }
 

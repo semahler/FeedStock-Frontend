@@ -2,11 +2,13 @@
   <div v-if="notificationMessage" class="notification" :class="notificationClass">
     <button class="delete" @click="dismissNotification()" />
 
-    <div v-if="notificationClass === 'is-danger'">
-      <p><strong>Beim Abfragen der Daten ist ein Fehler aufgetreten</strong></p>
-      <p>StatusCode: {{ statusCode }}, {{ notificationMessage }}</p>
+    <div>
+      <p><strong>{{ notificationMessage }}</strong></p>
+      <div v-if="notificationDetails.statusCode">
+        <p>Status-Code {{ notificationDetails.statusCode }} ({{ notificationDetails.statusText }})</p>
+        <p>{{ notificationDetails.errorMessage }}</p>
+      </div>
     </div>
-    <div v-else-if="notificationClass === 'is-success'" />
   </div>
 </template>
 
@@ -19,8 +21,8 @@ export default {
     notificationClass () {
       return this.$store.getters['modules/notifications/getNotificationClass']
     },
-    statusCode () {
-      return this.$store.getters['modules/notifications/getStatusCode']
+    notificationDetails () {
+      return this.$store.getters['modules/notifications/getNotificationDetails']
     }
   },
   watch: {

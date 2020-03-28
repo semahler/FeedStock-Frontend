@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import { ERROR_TYPES } from '~/const'
+
 export default {
   data () {
     return {
@@ -51,19 +53,17 @@ export default {
           this.manufacturer = response
         })
         .catch((error) => {
-          this.showErrorNotification(error.response)
+          if (error.response) {
+            this.showErrorNotification(ERROR_TYPES.REQUEST_ERROR, error.response)
+          } else if (error.request) {
+            this.showErrorNotification(ERROR_TYPES.CONNECTION_ERROR)
+          } else {
+            this.showErrorNotification(ERROR_TYPES.GENERAL_ERROR, error.message)
+          }
         })
     },
-    showErrorNotification (error) {
-      const errorStatusCode = error.status
-      const errorMessage = error.data.message
-
-      this.$store.commit(
-        'modules/notifications/setErrorNotification',
-        {
-          errorStatusCode,
-          errorMessage
-        })
+    showErrorNotification (errorType, errorDetails) {
+      this.$store.commit('modules/notifications/setErrorNotificationData', { errorType, errorDetails })
     }
   },
   head () {
