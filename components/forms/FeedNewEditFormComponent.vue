@@ -108,6 +108,7 @@
 <script>
 import { required, url } from 'vuelidate/lib/validators'
 import SubmitResetButtonComponent from '@/components/form-components/SubmitResetButtonComponent'
+import { ERROR_TYPES } from '~/const'
 
 export default {
   name: 'FeedNewEditComponent',
@@ -163,17 +164,44 @@ export default {
         .then((response) => {
           this.manufacturers = response
         })
+        .catch((error) => {
+          if (error.response) {
+            this.showErrorNotification(ERROR_TYPES.REQUEST_ERROR, error.response)
+          } else if (error.request) {
+            this.showErrorNotification(ERROR_TYPES.CONNECTION_ERROR)
+          } else {
+            this.showErrorNotification(ERROR_TYPES.GENERAL_ERROR, error.message)
+          }
+        })
     },
     getFeedTypes () {
       this.$axios.$get('http://127.0.0.1/api/feed_types')
         .then((response) => {
           this.feedTypes = response
         })
+        .catch((error) => {
+          if (error.response) {
+            this.showErrorNotification(ERROR_TYPES.REQUEST_ERROR, error.response)
+          } else if (error.request) {
+            this.showErrorNotification(ERROR_TYPES.CONNECTION_ERROR)
+          } else {
+            this.showErrorNotification(ERROR_TYPES.GENERAL_ERROR, error.message)
+          }
+        })
     },
     getPackageUnits () {
       this.$axios.$get('http://127.0.0.1/api/package_units')
         .then((response) => {
           this.packageUnits = response
+        })
+        .catch((error) => {
+          if (error.response) {
+            this.showErrorNotification(ERROR_TYPES.REQUEST_ERROR, error.response)
+          } else if (error.request) {
+            this.showErrorNotification(ERROR_TYPES.CONNECTION_ERROR)
+          } else {
+            this.showErrorNotification(ERROR_TYPES.GENERAL_ERROR, error.message)
+          }
         })
     },
     createOrUpdateFeed (e) {
@@ -199,6 +227,9 @@ export default {
             window.console.log(error)
           })
       }
+    },
+    showErrorNotification (errorType, errorDetails) {
+      this.$store.commit('modules/notifications/setErrorNotificationData', { errorType, errorDetails })
     }
   }
 }

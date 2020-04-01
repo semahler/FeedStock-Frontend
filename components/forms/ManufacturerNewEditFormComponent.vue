@@ -75,6 +75,7 @@
 <script>
 import { required, url } from 'vuelidate/lib/validators'
 import SubmitResetButtonComponent from '@/components/form-components/SubmitResetButtonComponent'
+import { ERROR_TYPES } from '~/const'
 
 export default {
   name: 'ManufacturerNewEditComponent',
@@ -120,12 +121,21 @@ export default {
             this.$router.push({ name: 'manufacturer' })
           })
           .catch((error) => {
-            window.console.log(error)
+            if (error.response) {
+              this.showErrorNotification(ERROR_TYPES.REQUEST_ERROR, error.response)
+            } else if (error.request) {
+              this.showErrorNotification(ERROR_TYPES.CONNECTION_ERROR)
+            } else {
+              this.showErrorNotification(ERROR_TYPES.GENERAL_ERROR, error.message)
+            }
           })
       }
     },
     setUploadFile () {
       this.manufacturer.image = this.$refs.file.files[0]
+    },
+    showErrorNotification (errorType, errorDetails) {
+      this.$store.commit('modules/notifications/setErrorNotificationData', { errorType, errorDetails })
     }
   }
 }
